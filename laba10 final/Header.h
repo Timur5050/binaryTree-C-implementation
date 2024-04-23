@@ -19,13 +19,13 @@ struct node
 
 typedef struct node NODE;
 
-//struct sNode 
-//{
-//	struct TreeNode* t;
-//	struct sNode* next;
-//};
-//
-//typedef struct sNode StackNode;
+struct sNode 
+{
+	TreeNode* t;
+	struct sNode* next;
+};
+
+typedef struct sNode StackNode;
 
 TreeNode* createbinaryTree(TreeNode *root, char* data);
 
