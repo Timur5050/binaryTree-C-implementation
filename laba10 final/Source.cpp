@@ -226,10 +226,80 @@ void swapParentChildWithoutRecurse(TreeNode* root)
 	}
 }
 
+void push(StackNode** top_ref, TreeNode* t)
+{
+	StackNode* new_tNode
+		= (StackNode*)malloc(sizeof(StackNode));
+
+	if (new_tNode == NULL) {
+		printf("Stack Overflow \n");
+		getchar();
+		exit(0);
+	}
+	new_tNode->t = t;
+	new_tNode->next = (*top_ref);
+	(*top_ref) = new_tNode;
+}
+
+TreeNode* pop(StackNode** top_ref)
+{
+	TreeNode* res;
+	StackNode* top;
+
+	if (isEmpty(*top_ref)) {
+		printf("Stack Underflow \n");
+		getchar();
+		exit(0);
+	}
+	else {
+		top = *top_ref;
+		res = top->t;
+		*top_ref = top->next;
+		free(top);
+		return res;
+	}
+}
+
+bool isEmpty(StackNode* top)
+{
+	return (top == NULL) ? 1 : 0;
+}
+
 void deleteBinaryTree(TreeNode *root)
 {
 	if (root == NULL) return;
 	deleteBinaryTree(root->left);
 	deleteBinaryTree(root->right);
 	free(root);
+}
+
+void inOrderDelete(TreeNode* root)
+{
+	TreeNode* current = root;
+	StackNode* s = NULL;
+	bool done = 0;
+
+	while (!done)
+	{
+		if (current != NULL)
+		{
+			push(&s, current);
+			current = current->right;
+		}
+		else
+		{
+			if (!isEmpty(s))
+			{
+				current = pop(&s);
+				TreeNode* temp = current;
+				printf("%d ", current->number);
+				current = current->left;
+				free(temp);
+			}
+			else
+			{
+				done = 1;
+			}
+		}
+	}
 }

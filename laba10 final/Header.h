@@ -51,12 +51,12 @@ void levelOrderTraversal(TreeNode* root);
 
 void swapParentChildWithoutRecurse(TreeNode* root);
 
-//void push(StackNode** top_ref, struct tNode* t);
-//
-//struct tNode* pop(StackNode** top_ref);
-//
-//bool isEmpty(StackNode* top);
+void push(StackNode** top_ref, TreeNode* t);
+
+TreeNode* pop(StackNode** top_ref);
+
+bool isEmpty(StackNode* top);
 
 void deleteBinaryTree(TreeNode* root);
 
-//void inOrderDelete(TreeNode* root);
+void inOrderDelete(TreeNode* root);

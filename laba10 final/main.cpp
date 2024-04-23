@@ -111,6 +111,7 @@ int main()
 		printf("\nnone\n");
 	}
 	printf("\n");
-	deleteBinaryTree(root);
+	inOrderDelete(root);
+	//deleteBinaryTree(root);
 	return 0;
 }
