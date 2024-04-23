@@ -2,6 +2,7 @@ Data Structures:
  - Binary Tree
  - Linked Queue
  - Linked Stack
+
 Functions:
  - createbinaryTree
  - binaryTreeTraversal
